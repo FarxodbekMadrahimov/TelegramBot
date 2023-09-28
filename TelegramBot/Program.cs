@@ -90,7 +90,6 @@ async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, Cancel
         Message ms = await botClient.SendPhotoAsync(
         chatId: chatId,
         photo: $"{ReplaceWwwWithDd(messageText)}",
-        caption: "<b>Ara bird</b>. <i>Source</i>: <a href=\"https://pixabay.com\">Pixabay</a>",
         parseMode: ParseMode.Html,
         cancellationToken: cancellationToken);
 
@@ -109,7 +108,7 @@ async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, Cancel
 
     }
 
-    Console.WriteLine(messageText);
+   
 
 
 
@@ -137,6 +136,7 @@ static string ReplaceWwwWithDd(string input)
 
     // Replace "ig_web_copy_link" with "MzRlODBiNWFlZA=="
     result = Regex.Replace(result, "ig_web_copy_link", "MzRlODBiNWFlZA==");
+    result = Regex.Replace(result, "reel", "reels");
 
     return result;
 
